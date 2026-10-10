@@ -1,0 +1,93 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+
+format = """
+ $directory $git_branch $git_status $nodejs $python $golang $rust
+ $character
+"""
+
+right_format = """$cmd_duration"""
+
+# prompt symbol
+[character]
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
+
+# directory with blue icon
+[directory]
+style = "bold blue"
+format = "[󰉋 ](bold cyan) [$path]($style) "
+truncate_to_repo = true
+truncation_length = 1
+truncation_symbol = ""
+use_os_path_sep = false
+home_symbol = "~"
+
+# Command Duration
+[cmd_duration]
+min_time = 500
+format = '⏱ [$duration](bold yellow)'
+
+# git branch
+[git_branch]
+symbol = " "
+style = "bold purple"
+
+# git status
+[git_status]
+format = "([$all_status$ahead_behind]($style))"
+style = "red"
+
+ahead = "⇡${count} "
+behind = "⇣${count} "
+
+added = " ${count} "
+conflict = " ${count} "
+
+# spacing improved here
+modified = " ${count} "
+staged = " ${count} "
+untracked = " ${count} "
+deleted = " ${count} "
+
+# Node.js
+[nodejs]
+symbol = " "
+style = "bold green"
+version_format = "v${major}.${minor}"
+format = "[$symbol($version)]($style)"
+
+# Python
+[python]
+symbol = " "
+style = "bold yellow"
+version_format = "v${major}.${minor}"
+format = "[$symbol($version)]($style)"
+
+# Go
+[golang]
+symbol = " "
+style = "bold cyan"
+version_format = "v${major}.${minor}"
+format = "[$symbol($version)]($style)"
+
+# Rust
+[rust]
+symbol = "🦀"
+style = "bold red"
+version_format = "v${major}.${minor}"
+format = "[$symbol($version)]($style)"
+
+# Docker
+[docker_context]
+symbol = " "
+style = "bold blue"
+format = "[$symbol($context)]($style)"
+
+# Kubernetes
+[kubernetes]
+symbol = "󱃾 "
+style = "bold cyan"
+format = "[$symbol($context( ($namespace))]($style)"
+disabled = false
