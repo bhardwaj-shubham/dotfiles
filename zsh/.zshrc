@@ -78,6 +78,9 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 # FZF TAB
 # ================================
 
+# Quick file search using fd and open with Neovim
+alias ff='nv $(fd --type f --hidden | fzf --preview "bat --color=always {}")'
+
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:*' fzf-preview \
   'bat --color=always $realpath 2>/dev/null || eza --color=always $realpath'
